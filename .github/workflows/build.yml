@@ -17,11 +17,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Gradle
+      - name: Build with Gradle Wrapper
         run: ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Sarvatobhadra-App
-          path: app/build/outputs/apk/release/app
+          path: app/build/outputs/apk/release/app-release.apk
