@@ -23,18 +23,12 @@ public class AstroCalculator {
             case "Sun": planetId = SweConst.SE_SUN; break;
             case "Moon": planetId = SweConst.SE_MOON; break;
             case "Mars": planetId = SweConst.SE_MARS; break;
-            case "Mercury": planetId = SweConst.SE_MERCURY; break;
-            case "Jupiter": planetId = SweConst.SE_JUPITER; break;
-            case "Venus": planetId = SweConst.SE_VENUS; break;
-            case "Saturn": planetId = SweConst.SE_SATURN; break;
-            case "Rahu": planetId = SweConst.SE_MEAN_NODE; break;
-            case "Ketu": planetId = SweConst.SE_TRUE_NODE; break;
             default: planetId = SweConst.SE_SUN;
         }
 
-        sw.swe_set_topo(lat, lon, 0); // set location
+        sw.swe_set_topo(lat, lon, 0);
         sw.swe_calc_ut(sd.getJulDay(), planetId, SweConst.SEFLG_SWIEPH, xx, new StringBuffer());
-        return xx[0]; // longitude in degrees
+        return xx[0];
     }
 
     public String getNakshatra(double longitude) {
