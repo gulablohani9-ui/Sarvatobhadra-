@@ -9,18 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up JDK
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
+          distribution: 'temurin'
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
 
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Sarvatobhadra-App
-          path: app/build/outputs/apk/release/app-release.apk
+          path: app/build/outputs/apk/release/app
